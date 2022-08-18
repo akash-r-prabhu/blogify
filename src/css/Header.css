@@ -42,6 +42,9 @@
     display: none;
 }
 .logout{
-    color: white;
+    color: white !important;
     cursor: pointer;
+}
+.search{
+    display: none;
 }

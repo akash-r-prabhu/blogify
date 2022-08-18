@@ -16,15 +16,15 @@ function Popup() {
       .doc(blogId)
       .collection("blogs")
       .onSnapshot((snapshot) => {
-        setSnapshot(snapshot.docs.map((doc) => doc));
+        setSnapshot(snapshot?.docs.map((doc) => doc));
       });
-    console.log(snapshot[index].data().likes);
+    console.log(snapshot[index]?.data()?.likes);
     db.collection("rooms")
       .doc(blogId)
       .collection("blogs")
       .doc(snapshot[index].id)
       .update({
-        likes: snapshot[index].data().likes + 1,
+        likes: snapshot[index]?.data()?.likes + 1,
       });
     setIsLiked(!isLiked);
   };

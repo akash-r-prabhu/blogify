@@ -3,6 +3,7 @@ export const initialState = {
 };
 export const actionTypes = {
   SET_USER: "SET_USER",
+  LOGOUT: "LOGOUT",
 };
 
 const reducer = (state, action) => {
@@ -12,6 +13,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.user,
+      };
+    case actionTypes.LOGOUT:
+      return {
+        ...state,
+        user: null,
       };
     default:
       return state;

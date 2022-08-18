@@ -5,6 +5,7 @@ import SidebarOption from "./SidebarOption";
 import AddIcon from "@mui/icons-material/Add";
 import db from "../database/firebase";
 import { useStateValue } from "../context/StateProvider";
+import Avatar from "@mui/material/Avatar";
 function Sidebar() {
   const [user] = useStateValue();
   const [channels, setChannels] = useState([]);
@@ -26,10 +27,14 @@ function Sidebar() {
       <div className="sidebar__header">
         <FiberManualRecordIcon />
         <h3>{user?.user?.displayName}</h3>
+        <Avatar alt="akash" src={user.user.photoURL} className="avatar" />
       </div>
       <hr />
       <div className="sidebar__body">
-        <SidebarOption Icon={AddIcon} text="Add Channel" addChannelOption />
+        {user?.user?.displayName !== "Guest" && (
+          <SidebarOption Icon={AddIcon} text="Add Channel" addChannelOption />
+        )}
+
         {channels.map((channel) => (
           <SidebarOption id={channel.id} text={channel.name} />
         ))}

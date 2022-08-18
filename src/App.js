@@ -8,6 +8,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import reducer from "./context/reducer";
 import { useStateValue } from "./context/StateProvider";
 import Login from "./pages/Login";
+import Welcome from "./pages/Welcome";
 function App() {
   const [user, { dispatch }] = useStateValue();
   useEffect(() => {
@@ -27,7 +28,7 @@ function App() {
             <Routes>
               <Route path="/blogs/popup/:blogId/:index" element={<Popup />} />
               <Route path="/blogs/:blogId" element={<Blogs />} />
-              <Route path="/" element={<h1>welcome</h1>} />
+              <Route path="/" element={<Welcome />} />
             </Routes>
           </div>
         </>
