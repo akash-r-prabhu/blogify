@@ -26,9 +26,25 @@ function BlogInput({ blogId }) {
           onChange={(e) => setInput(e.target.value)}
           type="textarea"
         />
-        <button className="blogSendButton" onClick={postBlog} type="submit">
-          Send Message
-        </button>
+        {user?.user?.displayName !== "Guest" ? (
+          <>
+            <button className="blogSendButton" onClick={postBlog} type="submit">
+              Send Message
+            </button>
+          </>
+        ) : (
+          <button
+            className="blogSendButton"
+            onClick={(e) => {
+              e.preventDefault();
+              alert("Please login to post a blog");
+            }}
+            type="submit"
+            // disabled
+          >
+            Send Message
+          </button>
+        )}
       </form>
     </div>
   );

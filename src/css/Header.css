@@ -7,6 +7,7 @@
 }
 .header__left{
     flex: 0.3;
+    display: flex;
 }
 .header__search{
     align-items: center;
@@ -32,4 +33,15 @@
 }
 .header__right{
     flex: 0.2;
+}
+
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
+.logout{
+    color: white;
+    cursor: pointer;
 }

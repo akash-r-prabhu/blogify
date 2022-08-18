@@ -3,12 +3,14 @@ import db from "../database/firebase";
 import { Routes, Route, useParams } from "react-router-dom";
 import "../css/Popup.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useStateValue } from "../context/StateProvider";
 function Popup() {
   let { blogId, index } = useParams();
   const [blog, setBlog] = useState({});
   const [snapshot, setSnapshot] = useState([]);
   const [doc, setDoc] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
+  const [user] = useStateValue();
   const like = () => {
     db.collection("rooms")
       .doc(blogId)
@@ -40,7 +42,17 @@ function Popup() {
     <div className="popup">
       <h1>{`Author ${blog[index]?.user}`}</h1>
       <hr />
-      <FavoriteIcon className={isLiked && `likeRed`} onClick={() => like()} />
+      {user?.user?.displayName !== "Guest" ? (
+        <FavoriteIcon className={isLiked && `likeRed`} onClick={() => like()} />
+      ) : (
+        <FavoriteIcon
+          className={isLiked && `likeRed`}
+          onClick={(e) => {
+            e.preventDefault();
+            alert("Please login to like a blog");
+          }}
+        />
+      )}
       <p>{blog[index]?.message}</p>
     </div>
   );

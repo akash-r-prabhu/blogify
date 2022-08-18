@@ -13,11 +13,20 @@ function Login() {
       .signInWithPopup(provider)
       .then((result) => {
         console.log(result);
-        dispatch({ type: actionTypes.SET_USER, user: result.user });
+        dispatch({
+          type: actionTypes?.SET_USER,
+          user: result?.user,
+        });
       })
       .catch((error) => {
         alert(error.message);
       });
+  };
+  const signInAsGuest = () => {
+    dispatch({
+      type: actionTypes?.SET_USER,
+      user: { displayName: "Guest" },
+    });
   };
 
   return (
@@ -25,9 +34,12 @@ function Login() {
       <div className="login__container">
         <img src={logo} />
         <h1>Sign in to Blogify</h1>
-        <Button className="button" onClick={signIn}>
-          {" "}
+        <Button className="loginButton" onClick={signIn}>
           Sign in with Google
+        </Button>
+        <br />
+        <Button className="button__guest" onClick={signInAsGuest}>
+          Continue as Guest
         </Button>
       </div>
     </div>
