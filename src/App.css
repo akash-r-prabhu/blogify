@@ -1,0 +1,8 @@
+body{
+  --app-color:#3f0f40;
+  overflow-y: hidden;
+}
+.app__body{
+  display: flex;
+  height: 100vh;
+}

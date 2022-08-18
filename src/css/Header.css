@@ -1,0 +1,35 @@
+.header{
+    background-color: var(--app-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+.header__left{
+    flex: 0.3;
+}
+.header__search{
+    align-items: center;
+    display: flex;
+    border: 1px solid #571558;
+    border-radius: 999px;
+    padding: 3px;
+    flex: 1;
+    background-color: #461c47;
+}
+.header__search > .MuiSvgIcon-root{
+    margin-right: 5px;
+    font-size: 25px;
+    color: white;
+}
+.header__search > input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+}
+.header__right{
+    flex: 0.2;
+}
