@@ -1,4 +1,3 @@
-<h1>Blogify </h1>
 
 Blogify is a blog sharing platform where people can create multiple channels and publish blogs .
 
